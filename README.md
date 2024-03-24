@@ -6,12 +6,17 @@ Simple (deep feed-forward) neural network implementation in C using Intel Intrin
 
 I only tested this in Linux (Fedora 39). You need to have a x86 64-bit CPU with AVX2 to compile main.cpp. 
 You can compile it using gcc as below (navigate to **inferece_impl** directory first):
+
 `gcc main.cpp -o fashion_classifier -lm -lstdc++ -march=native -std=c++17 -O3`
 
-Usage:
-0: No SIMD
-1: SIMD
-image_path: See [stbi](https://github.com/nothings/stb) for supported formats. Make sure the image is 28x28.
+**Usage**:
+
+*image_path*: See [stbi](https://github.com/nothings/stb) for supported formats. Make sure the image is 28x28.
+
+*0*: No SIMD
+
+*1*: SIMD
+
 `./fashion_classifier <image_path> <0|1>`
 
 ## Project Structure
@@ -22,4 +27,5 @@ image_path: See [stbi](https://github.com/nothings/stb) for supported formats. M
 ## Neural Network
 
 I followed the PyTorch tutorial in official docs. Model takes in a 28x28 pixel grayscale image, containing various fashion items (sneakers, dress, pullover, T-Shirt, etc.) and classifies it accordingly. I only changed the optimizer to Adam from SGD different from the tutorial, which seemed to boost the accuracy significantly.
+
 
